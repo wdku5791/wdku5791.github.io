@@ -23,6 +23,7 @@
   .thumbnail {
     width: 100%;
     height: 50%;
+    padding: 1em;
   }
   .icon {
     width: 1em;
@@ -33,6 +34,38 @@
     background-color: rgb(250,250,250);
     padding: 1em 1em 1em 1em;
   }
+
+  #overlay {
+      position: fixed; /* Sit on top of the page content */
+      display: none; /* Hidden by default */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 100%; /* Full height (cover the whole page) */
+      top: 0; 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+      z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+      cursor: pointer; /* Add a pointer on hover */
+  }
+  .panel {
+      position: absolute;
+      display: none;
+      top: 50%;
+      left: 50%;
+      font-size: 0.8em;
+      color: black;
+      background-color: white;
+      padding: 1em;
+      transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+      overflow-y: scroll;
+  }
+  .panel > img {
+    margin: 1%;
+    width: 90%;
+    height: auto;
+  }
 </style>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -40,6 +73,28 @@
 </head>
 
 <body>
+  <div id="overlay" onclick="off()">
+    <div class='panel' id='youin'>
+      <h3>YouIn</h3>
+      Stack: PostgreSQL, SemanticUI, Bootstrap, Node, React
+      <img src="/portfolio/youin/youin.png" alt="">
+    </div>
+    <div class='panel' id='lazytraveller'>
+      <h3>LazyTraveller</h3>
+      Stack: MongoDB, SemanticUI, Bootstrap, Node, React
+      <img src="/portfolio/lazytraveller/lazytraveller1.png" alt="">
+      <img src="/portfolio/lazytraveller/lazytraveller2.png" alt="">
+      <img src="/portfolio/lazytraveller/lazytraveller3.png" alt="">
+    </div>
+    <div class='panel' id='artpoint'>
+      <h3>ArtPoint</h3>
+      Stack: PostgreSQL, SemanticUI, Node, React, Redux
+      <img src="/portfolio/artpoint/artpoint1.png" alt="">
+      <img src="/portfolio/artpoint/artpoint2.png" alt="">
+      <img src="/portfolio/artpoint/artpoint3.png" alt="">
+      <img src="/portfolio/artpoint/artpoint4.png" alt="">
+    </div>
+  </div>
   <div id="all">
 
     <div class="jum">
@@ -87,62 +142,56 @@
         <div class="row">
           
               <div class="col-xs-10 col-sm-5 col-md-3 col-lg-4 masonry-item">
-                  <div class="box-masonry">
+                  <div class="box-masonry" data-title="artpoint">
                       
                         
-                        <a href="https://alisonzthu.github.io/bookshelf/portfolio/work2/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        <a data-title="artpoint" class="box-masonry-image with-hover-overlay with-hover-icon">
                         
                             <img src="/portfolio/artpoint/artpoint1.png" alt="" class="thumbnail">
                         </a>
                       
                       
-                      <div class="box-masonry-text">
                       
-                          <h4><a href="https://alisonzthu.github.io/bookshelf/portfolio/work2/">ArtPoint</a></h4>
-                          <div class="box-masonry-desription">
+                          <h4><a data-title="artpoint">ArtPoint</a></h4>
+                          
                               <p><p>An auctioning platform for up-and-coming artists to list their works</p></p>
-                          </div>
-                      </div>
+                          
                   </div>
               </div>
           
               <div class="col-xs-10 col-sm-5 col-md-3 col-lg-4 masonry-item">
-                  <div class="box-masonry">
+                  <div class="box-masonry" data-title="youin">
                       
                         
-                        <a href="https://alisonzthu.github.io/bookshelf/portfolio/work7/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        <a data-title="youin" class="box-masonry-image with-hover-overlay with-hover-icon">
                         
                             <img src="/portfolio/youin/youin.png" alt="" class="thumbnail">
                         </a>
                       
                       
-                      <div class="box-masonry-text">
                       
-                          <h4><a href="https://alisonzthu.github.io/bookshelf/portfolio/work7/">YouIn</a></h4>
-                          <div class="box-masonry-desription">
+                          <h4><a data-title="youin">YouIn</a></h4>
+                          
                               <p><p>An Event organizer. Make having fun with your friends easy!</p></p>
-                          </div>
-                      </div>
+                          
                   </div>
               </div>
           
               <div class="col-xs-10 col-sm-5 col-md-3 col-lg-4 masonry-item">
-                  <div class="box-masonry">
+                  <div class="box-masonry" data-title="lazytraveller">
                       
                         
-                        <a href="https://alisonzthu.github.io/bookshelf/portfolio/work8/" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                        <a data-title="lazytraveller" class="box-masonry-image with-hover-overlay with-hover-icon">
                         
                             <img src="/portfolio/lazytraveller/lazytraveller1.png" alt="" class="thumbnail">
                         </a>
                       
                       
-                      <div class="box-masonry-text">
                       
-                          <h4><a href="https://alisonzthu.github.io/bookshelf/portfolio/work8/">Lazy Traveller</a></h4>
-                          <div class="box-masonry-desription">
+                          <h4><a data-title="lazytraveller">Lazy Traveller</a></h4>
+                          
                               <p><p>A Itinerary builder for new/spontaneous travellers all in 5 minutes.</p></p>
-                          </div>
-                      </div>
+                          
                   </div>
               </div>
           
@@ -154,6 +203,31 @@
           </div>
       </div>
   </div>
+
+  <script>
+    const thumbs = document.querySelectorAll('.box-masonry');
+    thumbs.forEach((item) => {
+      item.addEventListener('click', on);
+    })
+    function on(e) {
+      console.log(e, this.dataset.title)
+        document.getElementById("overlay").style.display = "block";
+        if (this.dataset.title === 'youin') {
+          document.getElementById('youin').style.display= 'block';
+        } else if (this.dataset.title === 'artpoint') {
+          document.getElementById('artpoint').style.display= 'block';
+        } else if (this.dataset.title === 'lazytraveller') {
+          document.getElementById('lazytraveller').style.display= 'block';
+        }
+    }
+
+    function off() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById('youin').style.display= 'none';
+        document.getElementById('artpoint').style.display= 'none';
+        document.getElementById('lazytraveller').style.display= 'none';
+    }
+  </script>
 
 </body>
 </html>
