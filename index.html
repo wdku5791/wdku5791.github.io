@@ -15,12 +15,23 @@
   <!--<link href="https://alisonzthu.github.io/bookshelf/css/style.default.css" rel="stylesheet" id="theme-stylesheet">-->
 
 <style>
-  #all {
-    margin-top: 2em;
+  .jum {
+    padding: 1em;
+    background-color: rgb(220, 220, 220);
+    margin-bottom: 2em;
   }
   .thumbnail {
-    width: 10em;
-    height: 6em;
+    width: 100%;
+    height: 50%;
+  }
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  .box-masonry {
+    background-color: rgb(250,250,250);
+    padding: 1em 1em 1em 1em;
   }
 </style>
 
@@ -30,24 +41,31 @@
 
 <body>
   <div id="all">
+
+    <div class="jum">
+      <div class="container">
+        <h3><a>Winston Ku's Website Portfolio</a></h3>
+        <p>I am a Javascript Software Engineer who loves problem solving, new ways of doing things, and debugging code</p>
+      </div>
+    </div>
       <div class="container-fluid">
           <div class="row row-offcanvas row-offcanvas-left">
               <div id="sidebar" class="col-xs-5 col-sm-4 col-md-3 sidebar-offcanvas">
   <div class="sidebar-content">
-    <h4 class="sidebar-heading"><a>Winston's Website Portfolio</a></h4>
+    <!--<h4 class="sidebar-heading"><a>Winston's Website Portfolio</a></h4>-->
     
-      <p class="sidebar-p">By Winston Ku</p>
+      <!--<p class="sidebar-p">By Winston Ku</p>-->
     
-      <p class="sidebar-p">I am a Javascript Software Engineer who loves problem solving and debugging code </p>
+      <!--<p class="sidebar-p">I am a Javascript Software Engineer who loves problem solving and debugging code </p>-->
       <p class="sidebar-p">Having spent the last few years of my life dealing with an extreme skin disease that left me unable to go outside, coding helped me cope with the difficulties </p>
     <p class="social">
   
   <a href="https://www.linkedin.com/in/winston-ku" data-animate-hover="pulse">
-    <i class="fa fa-linkedin"></i>
+    <img src='/github.png'class="icon"></img>
   </a>
   
   <a href="https://www.github.com/wdku5791" data-animate-hover="pulse">
-    <img src="/github.png"></i>
+    <img src="/github.png" class='icon'></img>
   </a>
   
 </p>
@@ -62,7 +80,7 @@
               
   <div class="col-xs-10 col-sm-7 col-md-8 content-column">
     <div class="small-navbar visible-xs">
-  <h1 class="small-navbar-heading"><a>Examples</a></h1>
+  <!--<h1 class="small-navbar-heading"><a>Examples</a></h1>-->
 </div>
 
     <div class="grid">
@@ -136,15 +154,6 @@
           </div>
       </div>
   </div>
-<!--  <script src="https://alisonzthu.github.io/bookshelf/js/jquery.min.js"></script>
-<script src="https://alisonzthu.github.io/bookshelf/js/bootstrap.min.js"></script>
-<script src="https://alisonzthu.github.io/bookshelf/js/jquery.cookie.js"> </script>
-<script src="https://alisonzthu.github.io/bookshelf/js/ekko-lightbox.js"></script>
-<script src="https://alisonzthu.github.io/bookshelf/js/jquery.scrollTo.min.js"></script>
-<script src="https://alisonzthu.github.io/bookshelf/js/masonry.pkgd.min.js"></script>
-<script src="https://alisonzthu.github.io/bookshelf/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://alisonzthu.github.io/bookshelf/js/owl.carousel.min.js"></script>
-<script src="https://alisonzthu.github.io/bookshelf/js/front.js"></script>!-->
 
 </body>
 </html>
