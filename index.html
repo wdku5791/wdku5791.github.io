@@ -28,6 +28,7 @@
   .icon {
     width: 1em;
     height: 1em;
+    margin: 1em;
   }
 
   .box-masonry {
@@ -36,21 +37,23 @@
   }
 
   #overlay {
-      position: fixed; /* Sit on top of the page content */
-      display: none; /* Hidden by default */
-      width: 100%; /* Full width (cover the whole page) */
-      height: 100%; /* Full height (cover the whole page) */
+      position: fixed;
+      display: none;
+      width: 100%;
+      height: 100%; 
       top: 0; 
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0,0,0,0.9); /* Black background with opacity */
-      z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-      cursor: pointer; /* Add a pointer on hover */
+      background-color: rgba(0,0,0,0.9);
+      z-index: 2; 
+      cursor: pointer;
   }
   .panel {
       position: absolute;
       display: none;
+      max-height: 80%;
+      width: 80%;
       top: 50%;
       left: 50%;
       font-size: 0.8em;
@@ -76,19 +79,22 @@
   <div id="overlay" onclick="off()">
     <div class='panel' id='youin'>
       <h3>YouIn</h3>
-      Stack: PostgreSQL, SemanticUI, Bootstrap, Node, React
+      <p>Stack: PostgreSQL, SemanticUI, Bootstrap, Node, React</p>
+
       <img src="/portfolio/youin/youin.png" alt="">
     </div>
     <div class='panel' id='lazytraveller'>
       <h3>LazyTraveller</h3>
-      Stack: MongoDB, SemanticUI, Bootstrap, Node, React
+      <p>Stack: MongoDB, SemanticUI, Bootstrap, Node, React</p>
+
       <img src="/portfolio/lazytraveller/lazytraveller1.png" alt="">
       <img src="/portfolio/lazytraveller/lazytraveller2.png" alt="">
       <img src="/portfolio/lazytraveller/lazytraveller3.png" alt="">
     </div>
     <div class='panel' id='artpoint'>
       <h3>ArtPoint</h3>
-      Stack: PostgreSQL, SemanticUI, Node, React, Redux
+      <p>Stack: PostgreSQL, SemanticUI, Node, React, Redux</p>
+
       <img src="/portfolio/artpoint/artpoint1.png" alt="">
       <img src="/portfolio/artpoint/artpoint2.png" alt="">
       <img src="/portfolio/artpoint/artpoint3.png" alt="">
@@ -116,7 +122,8 @@
     <p class="social">
   
   <a href="https://www.linkedin.com/in/winston-ku" data-animate-hover="pulse">
-    <img src='/github.png'class="icon"></img>
+    LinkedIn
+    <!-- <img src='/github.png'class="icon"></img> -->
   </a>
   
   <a href="https://www.github.com/wdku5791" data-animate-hover="pulse">
