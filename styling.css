@@ -156,3 +156,11 @@
     background-color: rgba(120,220,240,.9);
     cursor: pointer;
   }
+
+  .about {
+    background-color: #0074D9;
+  }
+  .about img {
+    width: 100%;
+    height: auto;
+  }
