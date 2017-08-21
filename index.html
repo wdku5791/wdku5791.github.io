@@ -8,167 +8,7 @@
 <meta name="googlebot" content="index,follow,snippet,archive">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
-
-<style>
-  body {
-    background-color: #f4f4f4 !important;
-    height: 100%;
-    font-family: "Roboto", Helvetica, Arial, sans-serif !important;
-  }
-  .jum {
-    padding: 1em;
-    background-color: #0074D9;
-    /*margin-bottom: 2em;*/
-    /*border: 1px;*/
-    /*border-radius: 8px;*/
-    color: white;
-    height: 20%;
-  }
-  .jum h5{
-    text-align: center;
-  }
-  .thumbnail {
-    width: 100%;
-    height: 50%;
-    padding: 1em;
-  }
-  .icon {
-    width: 1em;
-    height: 1em;
-    /*margin: 1em;*/
-  }
-
-  .box-masonry {
-    background-color: #0074D9;
-    color: white;
-    /*padding: 1em;*/
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin: 3px;
-  }
-  .text {
-    padding: 1em;
-  }
-
-  #overlay {
-      position: fixed;
-      display: none;
-      width: 100%;
-      height: 100%; 
-      top: 0; 
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.9);
-      z-index: 2; 
-      cursor: pointer;
-  }
-  .panel {
-      position: absolute;
-      display: none;
-      max-height: 80%;
-      width: 80%;
-      top: 50%;
-      left: 50%;
-      font-size: 0.8em;
-      color: black;
-      background-color: white;
-      padding: 1em;
-      transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-      overflow-y: scroll;
-      text-align: center;
-  }
-  .panel > h3 {
-    text-align: center;
-  }
-  .panel > img {
-    /*margin: 1%;*/
-    width: 100%;
-    height: auto;
-    padding-top: 3em;
-  }
-
-  .copyright {
-    position: fixed;
-    top: 95%;
-    left: 0px;
-    height: 5%;
-    width: 100%;
-    background-color: rgba(20,20,20,.3);
-    text-align: top;
-  }
-
-  .copyright i {
-    padding: 1%;
-  }
-
-  .content {
-    padding: 0.5em;
-    display: inline-block;
-    margin: 0px;
-    /*border: 1px solid gray;*/
-    /*border-radius: 10px;*/
-    /*background-color: rgba(100,200,240,.6);*/
-  }
-  .sidebar {
-    /*background-color: rgba(100,200,240,.6);*/
-  }
-  .mini-submenu{
-    display:none;  
-    background-color: rgba(200, 200, 200, 0.85);
-    /*border: 1px solid rgba(0, 0, 0, 0.9);*/
-    border-radius: 4px;
-    padding: 9px;  
-    /*position: relative;*/
-    width: 42px;
-
-  }
-
-  .mini-submenu:hover{
-    cursor: pointer;
-  }
-
-  .mini-submenu .icon-bar {
-    /*border-radius: 1px;*/
-    display: block;
-    height: 2px;
-    width: 22px;
-    margin-top: 3px;
-  }
-
-  .mini-submenu .icon-bar {
-    background-color: rgba(200, 200, 200, 0.85);
-  }
-
-  #slide-submenu {
-    background: rgba(200, 200, 200, 0.85);
-    display: inline-block;
-    padding: 0 8px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .menutext {
-    font-size: 0.8em;
-  }
-  .mass {
-    height: 100%;
-  }
-
-  .list-item {
-      position: relative;
-      display: block;
-      padding: .75rem 1.25rem;
-      margin-bottom: -1px;
-      /*background-color: #fff;*/
-      /*border: 1px solid rgba(20,20,20,.125);*/
-  }
-  .active:hover {
-    background-color: rgba(120,220,240,.9);
-    cursor: pointer;
-  }
-</style>
+<link rel="stylesheet" href="./styling.css"/>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -222,17 +62,17 @@
             <div class="row">
               <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 sidebar content">
                 <div class="list-group">
-                    <span class="list-item menutext">
+                    <span href="#" class="list-item menutext">
                         I am a Javascript Software Engineer who loves problem solving, new ways of doing things, and debugging code
                         <span class="pull-right" id="slide-submenu">
                             <i class="fa fa-times"></i>
                         </span>
                     </span>
-                    <a href="index.html" class="list-item">
+                    <a href="#" class="list-item">
                         <i class="fa fa-search"></i> Home
                     </a>
                     <a href="about.html" class="list-item">
-                        <i class="fa fa-search"></i> About Me
+                        <i class="fa fa-user"></i> About Me
                     </a>
                     <a href="https://www.linkedin.com/in/winston-ku" class="list-item">
                       <img src="/linkedin.svg" class='icon'></img>
@@ -245,7 +85,76 @@
                 </div>        
               </div>
               <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 content">
-                about me
+              <div class="grid">
+                  <div class="row">
+                        <div class="col-xs-10 col-sm-5 col-md-6 col-lg-4">
+                          <div class="box-masonry active" data-title="artpoint">
+                            <a data-title="artpoint" class="box-masonry-image with-hover-overlay with-hover-icon">
+                              <img src="/portfolio/artpoint/artpoint1.png" alt="" class="thumbnail">
+                            </a>
+                            <div class='text'>
+                              <h4><a data-title="artpoint">ArtPoint</a></h4>
+                              <p><p>An auctioning platform for up-and-coming artists to list their works</p></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-5 col-md-6 col-lg-4">
+                            <div class="box-masonry active" data-title="youin">
+                              <a data-title="youin" class="box-masonry-image with-hover-overlay with-hover-icon">
+                                <img src="/portfolio/youin/youin.png" alt="" class="thumbnail">
+                              </a>
+                              <div class='text'>
+                                <h4><a data-title="youin">YouIn</a></h4>
+                                <p><p>An Event organizer. Make having fun with your friends easy!</p></p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-5 col-md-6 col-lg-4">
+                            <div class="box-masonry active" data-title="lazytraveller">
+                              <a data-title="lazytraveller" class="box-masonry-image with-hover-overlay with-hover-icon">
+                                <img src="/portfolio/lazytraveller/lazytraveller1.png" alt="" class="thumbnail">
+                              </a>
+                              <div class='text'>
+                                <h4><a data-title="lazytraveller">Lazy Traveller</a></h4>
+                                <p><p>An Itinerary builder for new/spontaneous travellers all in 5 minutes.</p></p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-5 col-md-6 col-lg-4">
+                            <div class="box-masonry active" data-title="uploader">
+                              <a data-title="uploader" class="box-masonry-image with-hover-overlay with-hover-icon">
+                                <img src="/portfolio/uploader/uploader.png" alt="" class="thumbnail">
+                              </a>
+                              <div class='text'>
+                                <h4><a data-title="uploader">Uploader</a></h4>
+                                <p><p>Input/Code mix-matcher for testing inputs and observing outputs</p></p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-5 col-md-6 col-lg-4">
+                            <div class="box-masonry" data-title="archiver">
+                              <a data-title="archiver" class="box-masonry-image with-hover-overlay with-hover-icon">
+                                <img src="/images.png" alt="" class="thumbnail">
+                              </a>
+                              <div class='text'>
+                                <h4><a data-title="archiver">Archives API</a></h4>
+                                <p><p>An api that archives website html based upon request using redis and a queue</p></p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-5 col-md-6 col-lg-4">
+                            <div class="box-masonry" data-title="emails">
+                              <a data-title="emails" class="box-masonry-image with-hover-overlay with-hover-icon">
+                                <img src="/images.png" alt="" class="thumbnail">
+                              </a>
+                              <div class='text'>
+                                <h4><a data-title="emails">Emails API</a></h4>
+                                <p><p>An api that sends emails and switches between services if one is down</p></p>
+                              </div>
+                            </div>
+                        </div>
+                  </div>
+              </div>
               </div>
             </div>
       </div>  
