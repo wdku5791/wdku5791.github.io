@@ -164,7 +164,10 @@
     background-color: #0074D9;
   }
   .about img {
-    width: 100%;
+    width: 50%;
+    display: block;
+    margin-top: 3%;
+    margin: auto;
     height: auto;
   }
   .bars {
@@ -191,4 +194,8 @@
 
   .menutext {
     font-size: 1em;
+  }
+
+  .profileimage {
+
   }

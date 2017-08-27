@@ -90,60 +90,62 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script>
-  const $container = $('.container');
-  const $bars = $('.bars');
-  const $bar = $('.bar');
-  const $clear = $('#clear');
-  const $limit = $('#limit');
-  const $button = $('.add');
-  const $display = $('#display');
-  let queue = [];
-  let limit = 5;
-  let counter = 0;
+  $(document).ready(function () {
+    const $container = $('.container');
+    const $bars = $('.bars');
+    const $bar = $('.bar');
+    const $clear = $('#clear');
+    const $limit = $('#limit');
+    const $button = $('.add');
+    const $display = $('#display');
+    let queue = [];
+    let limit = 5;
+    let counter = 0;
 
-  let clearHandler = function () {
-    while ($bars[0].firstChild) {
-  $bars[0].removeChild($bars[0].firstChild);
+    let clearHandler = function () {
+      while ($bars[0].firstChild) {
+    $bars[0].removeChild($bars[0].firstChild);
+      }
+      queue = [];
+      counter = 0;
     }
-    queue = [];
-    counter = 0;
-  }
-  $clear.on('click', clearHandler)
-  $limit.on('click', () => {
-    const newLimit = parseInt(document.querySelector('input').value);
-    if (newLimit > 0) {
-      clearHandler();
-      limit = newLimit;
-      $display[0].innerText = newLimit;
-    } else {
-      $display[0].innerText = 5;
-      alert('invalid. Please input integers greater than 0');
-    }
-  })
-  $button.on('click', () => {
-    const $newBar = $bar.clone();
-    $bars.append($newBar);
-    queue.push($newBar);
-    progress();
-  })
+    $clear.on('click', clearHandler)
+    $limit.on('click', () => {
+      const newLimit = parseInt(document.querySelector('input').value);
+      if (newLimit > 0) {
+        clearHandler();
+        limit = newLimit;
+        $display[0].innerText = newLimit;
+      } else {
+        $display[0].innerText = 5;
+        alert('invalid. Please input integers greater than 0');
+      }
+    })
+    $button.on('click', () => {
+      const $newBar = $bar.clone();
+      $bars.append($newBar);
+      queue.push($newBar);
+      progress();
+    })
 
-  function progress() {
-    if (counter >= limit) return;
-    if (counter < limit) {
-      const bar = queue.shift();
-      if (bar) {
-      counter++;
-        bar.width('99%');
-        bar.css("background-color", "cyan");
-        bar.on('transitionend', (event) => {
-        if (event.originalEvent.propertyName === 'width') {
-            counter--;
-            progress();
-            }
-        })
+    function progress() {
+      if (counter >= limit) return;
+      if (counter < limit) {
+        const bar = queue.shift();
+        if (bar) {
+        counter++;
+          bar.width('99%');
+          bar.css("background-color", "cyan");
+          bar.on('transitionend', (event) => {
+          if (event.originalEvent.propertyName === 'width') {
+              counter--;
+              progress();
+              }
+          })
+        }
       }
     }
-  }
+  });
 </script>
 </body>
 </html>
