@@ -32,10 +32,10 @@
                     <a href="/index.html" class="list-item">
                         <i class="fa fa-search"></i> Home
                     </a>
-                    <a href="#" class="list-item">
+                    <a href="/about.html" class="list-item">
                         <i class="fa fa-user"></i> About Me
                     </a>
-                    <a href="/progress.html" class="list-item">
+                    <a href="#" class="list-item">
                         <i class="fa fa-user"></i> Progress Bar Javascript
                     </a>
                     <a href="https://www.linkedin.com/in/winston-ku" class="list-item">
@@ -50,28 +50,34 @@
               </div>
               <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 content">
               <div class="grid box-masonry">
-                <img src="/winstoncrop.jpeg"></img>
                 <div class='text'> 
-                  <span>
-                    Hi I'm Winston. I like to build small tools that I would use/think others would use or things I want to see if I can do. Below are some more facts about me:
-                  </span>
-                  <br></br> 
-                  <span>
-                    I love to read about new scientific discoveries in the field of medicine. I also love to read about technologies based upon quantum physics(wishing I understood the physics).
-                  </span>
-                  <br></br> 
-                  <span>
-                    I like to watch funny or cute videos about cats/dogs, and love my cat Chloe.
-                  </span>
-                  <br></br> 
-                  <span>
-                    I love noodle soup dishes. It would make my day to tell someone what I love about a well made dish.
-                  </span>
-                  <br></br> 
-                  <span>
-                  My favorite game to play right now is Hearthstone and my favorite activity is Hiking.
-                  </span>
+                  Just a fun progress bar with a queue made from javascript, jquery, and css. Uses the bar and bars class styles. Uses transition to animate and fires callback based upon transitionend event for width transitions.
                 </div>
+                <!--<div>!-->
+                <div class='buttoncontainer'>
+                    <button class='add'>
+                      add progress
+                    </button>
+                    <button id='clear'>
+                      clear progress
+                    </button>
+                    <br></br>
+                    <div>
+                      <input type="number" step="1" min="1">
+                      <button id='limit'>
+                        change limit
+                      </button>
+                        <span>Current Limit</span>
+                        <span id='display'>5</span>
+                        <br></br>
+                    </div>
+                  </div>
+                    <div class='bars'>
+                      <div class='bar'>
+                      </div>
+                    </div>
+                  </div>
+                <!--</div>!-->
               </div>
               </div>
             </div>
@@ -83,6 +89,61 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script>
+  const $container = $('.container');
+  const $bars = $('.bars');
+  const $bar = $('.bar');
+  const $clear = $('#clear');
+  const $limit = $('#limit');
+  const $button = $('.add');
+  const $display = $('#display');
+  let queue = [];
+  let limit = 5;
+  let counter = 0;
 
+  let clearHandler = function () {
+    while ($bars[0].firstChild) {
+  $bars[0].removeChild($bars[0].firstChild);
+    }
+    queue = [];
+    counter = 0;
+  }
+  $clear.on('click', clearHandler)
+  $limit.on('click', () => {
+    const newLimit = parseInt(document.querySelector('input').value);
+    if (newLimit > 0) {
+      clearHandler();
+      limit = newLimit;
+      $display[0].innerText = newLimit;
+    } else {
+      $display[0].innerText = 5;
+      alert('invalid. Please input integers greater than 0');
+    }
+  })
+  $button.on('click', () => {
+    const $newBar = $bar.clone();
+    $bars.append($newBar);
+    queue.push($newBar);
+    progress();
+  })
+
+  function progress() {
+    if (counter >= limit) return;
+    if (counter < limit) {
+      const bar = queue.shift();
+      if (bar) {
+      counter++;
+        bar.width('99%');
+        bar.css("background-color", "cyan");
+        bar.on('transitionend', (event) => {
+        if (event.originalEvent.propertyName === 'width') {
+            counter--;
+            progress();
+            }
+        })
+      }
+    }
+  }
+</script>
 </body>
 </html>
